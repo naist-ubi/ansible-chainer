@@ -4,3 +4,6 @@
   tasks:
     - name: install chainer
       pip: name=chainer
+
+    - name: install chainer cuda dependencies
+      pip: name=chainer-cuda-deps
