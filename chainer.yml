@@ -1,4 +1,5 @@
 - hosts: all
+  user: ubi-lab
   sudo: yes
   tasks:
     - name: install chainer
