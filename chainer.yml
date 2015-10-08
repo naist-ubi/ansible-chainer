@@ -5,5 +5,11 @@
     - name: install chainer
       pip: name=chainer
 
-    - name: install chainer cuda dependencies
-      pip: name=chainer-cuda-deps
+    - name: clone pyCuda repository
+      git: repo=git@github.com:inducer/pycuda.git
+
+    - name: build pyCuda
+      command: python configure.py && python setup.py install
+
+    - name: install pyCuda
+      command: make install
