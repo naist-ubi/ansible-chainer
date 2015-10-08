@@ -6,10 +6,13 @@
       pip: name=chainer
 
     - name: clone pyCuda repository
-      git: repo=git@github.com:inducer/pycuda.git
+      git: repo=http://git.tiker.net/trees/pycuda.git dest=pycuda
+      sudo: no
 
     - name: build pyCuda
-      command: python configure.py && python setup.py install
+      shell: python configure.py chdir=pycuda
 
     - name: install pyCuda
-      command: make install
+      shell: python setup.py install chdir=pycuda
+      environment:
+        PATH: "/usr/local/cuda/bin:{{ ansible_env.PATH }}"
